@@ -1,5 +1,5 @@
 """
-John Claude Unified MCP Gateway v4 - With RAG Semantic Search
+John Claude Unified MCP Gateway v4.1 - With RAG Semantic Search + Vercel MCP
 """
 import os, json, uuid, requests
 from flask import Flask, request, jsonify, make_response
@@ -22,7 +22,7 @@ SERVICES = {
     "azure_cli": {"url": "https://azure-cli-mcp.calmsmoke-f302257e.eastus.azurecontainerapps.io/mcp", "type": "http"},
     "gemini": {"url": "https://gemini-mcp.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp", "type": "http"},
     "asana": {"url": "https://mcp.asana.com/sse", "type": "sse"},
-    "vercel": {"url": "https://mcp.vercel.com", "type": "http"},
+    "vercel": {"url": "https://vercel-mcp.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp", "type": "http"},
     "make": {"url": "https://mcp.make.com", "type": "sse"},
 }
 
@@ -140,7 +140,7 @@ def mcp():
     try:
         if m == 'initialize':
             if not ALL_TOOLS: ALL_TOOLS = [t for sn,cfg in SERVICES.items() for t in discover(sn,cfg)]
-            result = {"protocolVersion":"2024-11-05","serverInfo":{"name":"john-claude-gateway","version":"4.0-rag"},"capabilities":{"tools":{}}}
+            result = {"protocolVersion":"2024-11-05","serverInfo":{"name":"john-claude-gateway","version":"4.1-vercel"},"capabilities":{"tools":{}}}
         elif m == 'notifications/initialized': return '', 204
         elif m == 'tools/list': result = {"tools": GATEWAY_TOOLS + ALL_TOOLS}
         elif m == 'tools/call':
@@ -156,12 +156,12 @@ def mcp():
     except Exception as e: return jsonify({"jsonrpc":"2.0","error":{"code":-32000,"message":str(e)},"id":rid})
 
 @app.route('/health')
-def health(): return jsonify({"status":"ok","version":"4.0-rag","services":len(SERVICES),"tools":len(ALL_TOOLS),"rag_enabled":True})
+def health(): return jsonify({"status":"ok","version":"4.1-vercel","services":len(SERVICES),"tools":len(ALL_TOOLS),"rag_enabled":True})
 
 @app.route('/')
-def root(): return jsonify({"service":"John Claude Unified Gateway","version":"4.0-rag","endpoint":"/mcp","services":list(SERVICES.keys()),"features":["rag_search","hive_mind"]})
+def root(): return jsonify({"service":"John Claude Unified Gateway","version":"4.1-vercel","endpoint":"/mcp","services":list(SERVICES.keys()),"features":["rag_search","hive_mind","vercel"]})
 
 if __name__ == '__main__':
     ALL_TOOLS = [t for sn,cfg in SERVICES.items() for t in discover(sn,cfg)]
-    print(f"Gateway v4 (RAG) started with {len(SERVICES)} services and {len(ALL_TOOLS)} tools")
+    print(f"Gateway v4.1 (Vercel) started with {len(SERVICES)} services and {len(ALL_TOOLS)} tools")
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT',8080)))
