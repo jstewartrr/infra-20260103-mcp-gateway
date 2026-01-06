@@ -29,22 +29,6 @@ CORS(app, origins="*", supports_credentials=True)
 # NEW INFRASTRUCTURE - All cv-sm-* naming convention (20260105)
 # ============================================================================
 BACKEND_MCPS = {
-    "snowflake": {
-        "url": os.environ.get("MCP_SNOWFLAKE_URL", "https://cv-sm-snowflake-20260105.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp"),
-        "prefix": "sm",
-        "description": "Sovereign Mind Snowflake database",
-        "enabled": True,
-        "transport": "json",
-        "priority": 1
-    },
-    "googledrive": {
-        "url": os.environ.get("MCP_GOOGLEDRIVE_URL", "https://cv-sm-googledrive-20260105.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp"),
-        "prefix": "googledrive",
-        "description": "Google Drive file access",
-        "enabled": True,
-        "transport": "json",
-        "priority": 1
-    },
     "m365": {
         "url": os.environ.get("MCP_M365_URL", "https://cv-sm-m365-20260105.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp"),
         "prefix": "m365",
@@ -65,14 +49,6 @@ BACKEND_MCPS = {
         "url": os.environ.get("MCP_GITHUB_URL", "https://cv-sm-github-20260105.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp"),
         "prefix": "github",
         "description": "GitHub repositories",
-        "enabled": True,
-        "transport": "json",
-        "priority": 1
-    },
-    "azure": {
-        "url": os.environ.get("MCP_AZURE_URL", "https://cv-sm-azure-cli-20260105.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp"),
-        "prefix": "azure",
-        "description": "Azure CLI commands",
         "enabled": True,
         "transport": "json",
         "priority": 1
@@ -155,14 +131,6 @@ BACKEND_MCPS = {
         "url": os.environ.get("MCP_VERCEL_URL", "https://cv-sm-vercel-20260105.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp"),
         "prefix": "vercel",
         "description": "Vercel deployments, projects, domains",
-        "enabled": True,
-        "transport": "json",
-        "priority": 2
-    },
-    "cloudflare": {
-        "url": os.environ.get("MCP_CLOUDFLARE_URL", "https://cv-sm-cloudflare-20260105.lemoncoast-87756bcf.eastus.azurecontainerapps.io/mcp"),
-        "prefix": "cloudflare",
-        "description": "Cloudflare Pages, DNS, zones, SSL",
         "enabled": True,
         "transport": "json",
         "priority": 2
@@ -333,36 +301,9 @@ def handle_native_tool(tool_name: str, arguments: dict) -> Dict:
     if tool_name == "gateway_status":
         return {"content": [{"type": "text", "text": json.dumps({"gateway": "sovereign_mind_gateway", "version": "3.0.0", "infrastructure": "cv-sm-*-20260105", "timestamp": datetime.now().isoformat(), "health": catalog.get_health_report(), "backends_configured": list(BACKEND_MCPS.keys())}, indent=2)}]}
     elif tool_name == "hivemind_write":
-        tool_info = catalog.get_tool("sm_execute_query")
-        if not tool_info:
-            return {"content": [{"type": "text", "text": "Error: Snowflake backend not available"}], "isError": True}
-        tags_json = json.dumps(arguments.get("tags", [])) if arguments.get("tags") else "NULL"
-        details_json = json.dumps(arguments.get("details", {})) if arguments.get("details") else "NULL"
-        sql = f"INSERT INTO SOVEREIGN_MIND.RAW.HIVE_MIND (SOURCE, CATEGORY, WORKSTREAM, SUMMARY, DETAILS, PRIORITY, STATUS, TAGS) VALUES ('{arguments.get('source', 'GATEWAY')}', '{arguments.get('category', 'CONTEXT')}', '{arguments.get('workstream', 'GENERAL')}', '{arguments.get('summary', '').replace(chr(39), chr(39)+chr(39))}', PARSE_JSON('{details_json.replace(chr(39), chr(39)+chr(39))}'), '{arguments.get('priority', 'MEDIUM')}', 'ACTIVE', PARSE_JSON('{tags_json}'))"
-        try:
-            run_async(call_backend_tool(tool_info["backend_url"], tool_info["original_name"], {"query": sql}, tool_info.get("transport", "json")))
-            return {"content": [{"type": "text", "text": "Hive Mind entry created"}]}
-        except Exception as e:
-            return {"content": [{"type": "text", "text": f"Error: {str(e)}"}], "isError": True}
+        return {"content": [{"type": "text", "text": "Error: Use Snowflake MCP directly (Slot 3)"}], "isError": True}
     elif tool_name == "hivemind_read":
-        tool_info = catalog.get_tool("sm_execute_query")
-        if not tool_info:
-            return {"content": [{"type": "text", "text": "Error: Snowflake backend not available"}], "isError": True}
-        limit = arguments.get("limit", 10)
-        conditions = []
-        if arguments.get("category"):
-            conditions.append(f"CATEGORY = '{arguments['category']}'")
-        if arguments.get("source"):
-            conditions.append(f"SOURCE = '{arguments['source']}'")
-        if arguments.get("workstream"):
-            conditions.append(f"WORKSTREAM = '{arguments['workstream']}'")
-        where_clause = f"WHERE {' AND '.join(conditions)}" if conditions else ""
-        sql = f"SELECT ID, CREATED_AT, SOURCE, CATEGORY, WORKSTREAM, SUMMARY, PRIORITY, STATUS FROM SOVEREIGN_MIND.RAW.HIVE_MIND {where_clause} ORDER BY CREATED_AT DESC LIMIT {limit}"
-        try:
-            result = run_async(call_backend_tool(tool_info["backend_url"], tool_info["original_name"], {"query": sql}, tool_info.get("transport", "json")))
-            return result.get("result", result)
-        except Exception as e:
-            return {"content": [{"type": "text", "text": f"Error: {str(e)}"}], "isError": True}
+        return {"content": [{"type": "text", "text": "Error: Use Snowflake MCP directly (Slot 3)"}], "isError": True}
     return {"content": [{"type": "text", "text": f"Unknown native tool: {tool_name}"}], "isError": True}
 
 def handle_initialize(params: dict) -> Dict:
