@@ -1,0 +1,49 @@
+version: 1.2.0
+cache: true
+
+registration:
+  socialLogins: []
+
+endpoints:
+  openAI:
+    titleConvo: true
+    titleModel: "gpt-4o-mini"
+    summarize: true
+    summaryModel: "gpt-4o-mini"
+    
+  anthropic:
+    titleConvo: true
+    titleModel: "claude-3-haiku-20240307"
+    summarize: true
+    summaryModel: "claude-3-haiku-20240307"
+
+  custom:
+    - name: "Grok"
+      apiKey: "${XAI_API_KEY}"
+      baseURL: "https://api.x.ai/v1"
+      models:
+        default:
+          - "grok-beta"
+          - "grok-2-latest"
+          - "grok-2-vision-1212"
+        fetch: true
+      titleConvo: true
+      titleModel: "grok-beta"
+      summarize: true
+      summaryModel: "grok-beta"
+      iconURL: "https://x.ai/favicon.ico"
+
+    - name: "DeepSeek"
+      apiKey: "${DEEPSEEK_API_KEY}"
+      baseURL: "https://api.deepseek.com"
+      models:
+        default:
+          - "deepseek-chat"
+          - "deepseek-coder"
+          - "deepseek-reasoner"
+        fetch: true
+      titleConvo: true
+      titleModel: "deepseek-chat"
+      summarize: true
+      summaryModel: "deepseek-chat"
+      iconURL: "https://www.deepseek.com/favicon.ico"
