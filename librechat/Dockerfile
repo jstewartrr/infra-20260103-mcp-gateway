@@ -1,16 +1,14 @@
 FROM ghcr.io/danny-avila/librechat:latest
 
-# Install curl if not present
+# Install curl (Alpine-based image uses apk)
 USER root
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache curl
 
 # Create startup script that downloads config
-RUN echo '#!/bin/sh\n\
-curl -sL https://raw.githubusercontent.com/jstewartrr/sm-mcp-gateway/main/librechat/librechat.yaml -o /app/librechat.yaml\n\
-exec npm start' > /app/start.sh && chmod +x /app/start.sh
+RUN printf '#!/bin/sh\ncurl -sL https://raw.githubusercontent.com/jstewartrr/sm-mcp-gateway/main/librechat/librechat.yaml -o /app/librechat.yaml\nexec npm start\n' > /app/start.sh && chmod +x /app/start.sh
 
 # Set config path
 ENV CONFIG_PATH=/app/librechat.yaml
 
 # Use the custom start script
-CMD ["/app/start.sh"]
+CMD ["/bin/sh", "/app/start.sh"]
