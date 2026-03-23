@@ -1,1 +1,588 @@
-IiIiCk1pY3Jvc29mdCAzNjUgTUNQIFNlcnZlciAtIEFCQkkncyBNMzY1IEludGVncmF0aW9uClByb3ZpZGVzIGVtYWlsLCBjYWxlbmRhciwgYW5kIHVzZXIgbWFuYWdlbWVudCB2aWEgTWljcm9zb2Z0IEdyYXBoIEFQSQoiIiIKCmZyb20gZmxhc2sgaW1wb3J0IEZsYXNrLCByZXF1ZXN0LCBqc29uaWZ5CmltcG9ydCBodHRweAppbXBvcnQgb3MKaW1wb3J0IGpzb24KZnJvbSBkYXRldGltZSBpbXBvcnQgZGF0ZXRpbWUsIHRpbWVkZWx0YQpmcm9tIGZ1bmN0b29scyBpbXBvcnQgbHJ1X2NhY2hlCmltcG9ydCB0aW1lCgphcHAgPSBGbGFzayhfX25hbWVfXykKCiMgQ29uZmlndXJhdGlvbgpURU5BTlRfSUQgPSBvcy5lbnZpcm9uLmdldCgiVEVOQU5UX0lEIiwgIjVlNTU4Zjk4LTYxM2ItNGM1NS04MGU3LTRmZDMyNzNkOGRmMyIpCkNMSUVOVF9JRCA9IG9zLmVudmlyb24uZ2V0KCJDTElFTlRfSUQiLCAiOTk2OWU4ZWYtOGMzYi00ZWExLWJmODUtOWE4OGUxMzcxYWI0IikKQ0xJRU5UX1NFQ1JFVCA9IG9zLmVudmlyb24uZ2V0KCJDTElFTlRfU0VDUkVUIikKREVGQVVMVF9VU0VSID0gb3MuZW52aXJvbi5nZXQoIkRFRkFVTFRfVVNFUiIsICJKb2huLkNsYXVkZUBtaWRkbGVncm91bmQuY29tIikKCkdSQVBIX0JBU0UgPSAiaHR0cHM6Ly9ncmFwaC5taWNyb3NvZnQuY29tL3YxLjAiClRPS0VOX1VSTCA9IGYiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29tL3tURU5BTlRfSUR9L29hdXRoMi92Mi4wL3Rva2VuIgoKIyBUb2tlbiBjYWNoZQpfdG9rZW5fY2FjaGUgPSB7InRva2VuIjogTm9uZSwgImV4cGlyZXNfYXQiOiAwfQoKCmRlZiBnZXRfYWNjZXNzX3Rva2VuKCk6CiAgICAiIiJHZXQgb3IgcmVmcmVzaCBhY2Nlc3MgdG9rZW4iIiIKICAgIGlmIF90b2tlbl9jYWNoZVsidG9rZW4iXSBhbmQgdGltZS50aW1lKCkgPCBfdG9rZW5fY2FjaGVbImV4cGlyZXNfYXQiXSAtIDYwOgogICAgICAgIHJldHVybiBfdG9rZW5fY2FjaGVbInRva2VuIl0KICAgIAogICAgcmVzcG9uc2UgPSBodHRweC5wb3N0KFRPS0VOX1VSTCwgZGF0YT17CiAgICAgICAgImNsaWVudF9pZCI6IENMSUVOVF9JRCwKICAgICAgICAiY2xpZW50X3NlY3JldCI6IENMSUVOVF9TRUNSRVQsCiAgICAgICAgInNjb3BlIjogImh0dHBzOi8vZ3JhcGgubWljcm9zb2Z0LmNvbS8uZGVmYXVsdCIsCiAgICAgICAgImdyYW50X3R5cGUiOiAiY2xpZW50X2NyZWRlbnRpYWxzIgogICAgfSkKICAgIAogICAgZGF0YSA9IHJlc3BvbnNlLmpzb24oKQogICAgaWYgImFjY2Vzc190b2tlbiIgaW4gZGF0YToKICAgICAgICBfdG9rZW5fY2FjaGVbInRva2VuIl0gPSBkYXRhWyJhY2Nlc3NfdG9rZW4iXQogICAgICAgIF90b2tlbl9jYWNoZVsiZXhwaXJlc19hdCJdID0gdGltZS50aW1lKCkgKyBkYXRhLmdldCgiZXhwaXJlc19pbiIsIDM2MDApCiAgICAgICAgcmV0dXJuIGRhdGFbImFjY2Vzc190b2tlbiJdCiAgICBlbHNlOgogICAgICAgIHJhaXNlIEV4Y2VwdGlvbihmIlRva2VuIGVycm9yOiB7ZGF0YX0iKQoKCmRlZiBncmFwaF9yZXF1ZXN0KG1ldGhvZCwgZW5kcG9pbnQsIHVzZXI9Tm9uZSwgKiprd2FyZ3MpOgogICAgIiIiTWFrZSBhdXRoZW50aWNhdGVkIEdyYXBoIEFQSSByZXF1ZXN0IiIiCiAgICB0b2tlbiA9IGdldF9hY2Nlc3NfdG9rZW4oKQogICAgaGVhZGVycyA9IHsiQXV0aG9yaXphdGlvbiI6IGYiQmVhcmVyIHt0b2tlbn0iLCAiQ29udGVudC1UeXBlIjogImFwcGxpY2F0aW9uL2pzb24ifQogICAgCiAgICAjIFByZXBlbmQgdXNlciBwYXRoIGlmIG5lZWRlZAogICAgaWYgdXNlciBhbmQgbm90IGVuZHBvaW50LnN0YXJ0c3dpdGgoIi91c2Vycy8iKToKICAgICAgICBlbmRwb2ludCA9IGYiL3VzZXJzL3t1c2VyfXtlbmRwb2ludH0iCiAgICBlbGlmIG5vdCB1c2VyIGFuZCBub3QgZW5kcG9pbnQuc3RhcnRzd2l0aCgiL3VzZXJzLyIpOgogICAgICAgIGVuZHBvaW50ID0gZiIvdXNlcnMve0RFRkFVTFRfVVNFUn17ZW5kcG9pbnR9IgogICAgCiAgICB1cmwgPSBmIntHUkFQSF9CQVNFfXtlbmRwb2ludH0iCiAgICAKICAgIHdpdGggaHR0cHguQ2xpZW50KHRpbWVvdXQ9MzApIGFzIGNsaWVudDoKICAgICAgICByZXNwb25zZSA9IGNsaWVudC5yZXF1ZXN0KG1ldGhvZCwgdXJsLCBoZWFkZXJzPWhlYWRlcnMsICoqa3dhcmdzKQogICAgICAgIGlmIHJlc3BvbnNlLnN0YXR1c19jb2RlID09IDIwNDoKICAgICAgICAgICAgcmV0dXJuIHsic3VjY2VzcyI6IFRydWV9CiAgICAgICAgcmV0dXJuIHJlc3BvbnNlLmpzb24oKQoKCiMgPT09PT09PT09PT09IE1DUCBQUk9UT0NPTCA9PT09PT09PT09PT0KClRPT0xTID0gWwogICAgewogICAgICAgICJuYW1lIjogInJlYWRfZW1haWxzIiwKICAgICAgICAiZGVzY3JpcHRpb24iOiAiUmVhZCBlbWFpbHMgZnJvbSBpbmJveC4gUmV0dXJucyBzdWJqZWN0LCBmcm9tLCBkYXRlLCBhbmQgcHJldmlldy4iLAogICAgICAgICJpbnB1dFNjaGVtYSI6IHsKICAgICAgICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgICAgICAgICAidXNlciI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiVXNlciBtYWlsYm94IChkZWZhdWx0OiBKb2huLkNsYXVkZUBtaWRkbGVncm91bmQuY29tKSJ9LAogICAgICAgICAgICAgICAgImZvbGRlciI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiRm9sZGVyIG5hbWUgKGRlZmF1bHQ6IGluYm94KSJ9LAogICAgICAgICAgICAgICAgInRvcCI6IHsidHlwZSI6ICJpbnRlZ2VyIiwgImRlc2NyaXB0aW9uIjogIk51bWJlciBvZiBlbWFpbHMgdG8gcmV0dXJuIChkZWZhdWx0OiAxMCkifSwKICAgICAgICAgICAgICAgICJ1bnJlYWRfb25seSI6IHsidHlwZSI6ICJib29sZWFuIiwgImRlc2NyaXB0aW9uIjogIk9ubHkgcmV0dXJuIHVucmVhZCBlbWFpbHMifSwKICAgICAgICAgICAgICAgICJzZWFyY2giOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIlNlYXJjaCBxdWVyeSJ9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9LAogICAgewogICAgICAgICJuYW1lIjogImdldF9lbWFpbCIsCiAgICAgICAgImRlc2NyaXB0aW9uIjogIkdldCBmdWxsIGVtYWlsIGNvbnRlbnQgYnkgSUQiLAogICAgICAgICJpbnB1dFNjaGVtYSI6IHsKICAgICAgICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgICAgICAgICAidXNlciI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiVXNlciBtYWlsYm94In0sCiAgICAgICAgICAgICAgICAibWVzc2FnZV9pZCI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiRW1haWwgbWVzc2FnZSBJRCJ9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJyZXF1aXJlZCI6IFsibWVzc2FnZV9pZCJdCiAgICAgICAgfQogICAgfSwKICAgIHsKICAgICAgICAibmFtZSI6ICJzZW5kX2VtYWlsIiwKICAgICAgICAiZGVzY3JpcHRpb24iOiAiU2VuZCBhbiBlbWFpbCBmcm9tIHRoZSBzcGVjaWZpZWQgdXNlciIsCiAgICAgICAgImlucHV0U2NoZW1hIjogewogICAgICAgICAgICAidHlwZSI6ICJvYmplY3QiLAogICAgICAgICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAgICAgICAgICJ1c2VyIjogeyJ0eXBlIjogInN0cmluZyIsICJkZXNjcmlwdGlvbiI6ICJTZW5kIGFzIHRoaXMgdXNlciAoZGVmYXVsdDogSm9obi5DbGF1ZGVAbWlkZGxlZ3JvdW5kLmNvbSkifSwKICAgICAgICAgICAgICAgICJ0byI6IHsidHlwZSI6ICJhcnJheSIsICJpdGVtcyI6IHsidHlwZSI6ICJzdHJpbmcifSwgImRlc2NyaXB0aW9uIjogIlJlY2lwaWVudCBlbWFpbCBhZGRyZXNzZXMifSwKICAgICAgICAgICAgICAgICJjYyI6IHsidHlwZSI6ICJhcnJheSIsICJpdGVtcyI6IHsidHlwZSI6ICJzdHJpbmcifSwgImRlc2NyaXB0aW9uIjogIkNDIHJlY2lwaWVudHMifSwKICAgICAgICAgICAgICAgICJiY2MiOiB7InR5cGUiOiAiYXJyYXkiLCAiaXRlbXMiOiB7InR5cGUiOiAic3RyaW5nIn0sICJkZXNjcmlwdGlvbiI6ICJCQ0MgcmVjaXBpZW50cyJ9LAogICAgICAgICAgICAgICAgInN1YmplY3QiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIkVtYWlsIHN1YmplY3QifSwKICAgICAgICAgICAgICAgICJib2R5IjogeyJ0eXBlIjogInN0cmluZyIsICJkZXNjcmlwdGlvbiI6ICJFbWFpbCBib2R5IChIVE1MIG9yIHBsYWluIHRleHQpIn0sCiAgICAgICAgICAgICAgICAiaXNfaHRtbCI6IHsidHlwZSI6ICJib29sZWFuIiwgImRlc2NyaXB0aW9uIjogIkJvZHkgaXMgSFRNTCAoZGVmYXVsdDogZmFsc2UpIn0sCiAgICAgICAgICAgICAgICAiaW1wb3J0YW5jZSI6IHsidHlwZSI6ICJzdHJpbmciLCAiZW51bSI6IFsibG93IiwgIm5vcm1hbCIsICJoaWdoIl0sICJkZXNjcmlwdGlvbiI6ICJFbWFpbCBpbXBvcnRhbmNlIn0sCiAgICAgICAgICAgICAgICAiYXR0YWNobWVudHMiOiB7CiAgICAgICAgICAgICAgICAgICAgInR5cGUiOiAiYXJyYXkiLAogICAgICAgICAgICAgICAgICAgICJkZXNjcmlwdGlvbiI6ICJGaWxlIGF0dGFjaG1lbnRzIiwKICAgICAgICAgICAgICAgICAgICAiaXRlbXMiOiB7CiAgICAgICAgICAgICAgICAgICAgICAgICJ0eXBlIjogIm9iamVjdCIsCiAgICAgICAgICAgICAgICAgICAgICAgICJwcm9wZXJ0aWVzIjogewogICAgICAgICAgICAgICAgICAgICAgICAgICAgIm5hbWUiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIkZpbGVuYW1lIn0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAiY29udGVudF90eXBlIjogeyJ0eXBlIjogInN0cmluZyIsICJkZXNjcmlwdGlvbiI6ICJNSU1FIHR5cGUgKGUuZy4gYXBwbGljYXRpb24vcGRmKSJ9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgImNvbnRlbnRfYnl0ZXMiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIkJhc2U2NCBlbmNvZGVkIGZpbGUgY29udGVudCJ9CiAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICJyZXF1aXJlZCI6IFsibmFtZSIsICJjb250ZW50X2J5dGVzIl0KICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJyZXF1aXJlZCI6IFsidG8iLCAic3ViamVjdCIsICJib2R5Il0KICAgICAgICB9CiAgICB9LAogICAgewogICAgICAgICJuYW1lIjogInJlcGx5X2VtYWlsIiwKICAgICAgICAiZGVzY3JpcHRpb24iOiAiUmVwbHkgdG8gYW4gZW1haWwiLAogICAgICAgICJpbnB1dFNjaGVtYSI6IHsKICAgICAgICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgICAgICAgICAidXNlciI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiVXNlciBtYWlsYm94In0sCiAgICAgICAgICAgICAgICAibWVzc2FnZV9pZCI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiT3JpZ2luYWwgbWVzc2FnZSBJRCJ9LAogICAgICAgICAgICAgICAgImJvZHkiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIlJlcGx5IGJvZHkifSwKICAgICAgICAgICAgICAgICJyZXBseV9hbGwiOiB7InR5cGUiOiAiYm9vbGVhbiIsICJkZXNjcmlwdGlvbiI6ICJSZXBseSB0byBhbGwgcmVjaXBpZW50cyJ9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJyZXF1aXJlZCI6IFsibWVzc2FnZV9pZCIsICJib2R5Il0KICAgICAgICB9CiAgICB9LAogICAgewogICAgICAgICJuYW1lIjogInNlYXJjaF9lbWFpbHMiLAogICAgICAgICJkZXNjcmlwdGlvbiI6ICJTZWFyY2ggZW1haWxzIGFjcm9zcyBtYWlsYm94IiwKICAgICAgICAiaW5wdXRTY2hlbWEiOiB7CiAgICAgICAgICAgICJ0eXBlIjogIm9iamVjdCIsCiAgICAgICAgICAgICJwcm9wZXJ0aWVzIjogewogICAgICAgICAgICAgICAgInVzZXIiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIlVzZXIgbWFpbGJveCJ9LAogICAgICAgICAgICAgICAgInF1ZXJ5IjogeyJ0eXBlIjogInN0cmluZyIsICJkZXNjcmlwdGlvbiI6ICJTZWFyY2ggcXVlcnkgKEtRTCBzeW50YXgpIn0sCiAgICAgICAgICAgICAgICAidG9wIjogeyJ0eXBlIjogImludGVnZXIiLCAiZGVzY3JpcHRpb24iOiAiTWF4IHJlc3VsdHMgKGRlZmF1bHQ6IDI1KSJ9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJyZXF1aXJlZCI6IFsicXVlcnkiXQogICAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICAgIm5hbWUiOiAibGlzdF9jYWxlbmRhcl9ldmVudHMiLAogICAgICAgICJkZXNjcmlwdGlvbiI6ICJMaXN0IGNhbGVuZGFyIGV2ZW50cyBmb3IgYSBkYXRlIHJhbmdlIiwKICAgICAgICAiaW5wdXRTY2hlbWEiOiB7CiAgICAgICAgICAgICJ0eXBlIjogIm9iamVjdCIsCiAgICAgICAgICAgICJwcm9wZXJ0aWVzIjogewogICAgICAgICAgICAgICAgInVzZXIiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIlVzZXIgY2FsZW5kYXIifSwKICAgICAgICAgICAgICAgICJzdGFydF9kYXRlIjogeyJ0eXBlIjogInN0cmluZyIsICJkZXNjcmlwdGlvbiI6ICJTdGFydCBkYXRlIChJU08gZm9ybWF0LCBkZWZhdWx0OiB0b2RheSkifSwKICAgICAgICAgICAgICAgICJlbmRfZGF0ZSI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiRW5kIGRhdGUgKElTTyBmb3JtYXQsIGRlZmF1bHQ6IDcgZGF5cyBmcm9tIHN0YXJ0KSJ9LAogICAgICAgICAgICAgICAgInRvcCI6IHsidHlwZSI6ICJpbnRlZ2VyIiwgImRlc2NyaXB0aW9uIjogIk1heCBldmVudHMgKGRlZmF1bHQ6IDUwKSJ9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9LAogICAgewogICAgICAgICJuYW1lIjogImNyZWF0ZV9ldmVudCIsCiAgICAgICAgImRlc2NyaXB0aW9uIjogIkNyZWF0ZSBhIGNhbGVuZGFyIGV2ZW50IiwKICAgICAgICAiaW5wdXRTY2hlbWEiOiB7CiAgICAgICAgICAgICJ0eXBlIjogIm9iamVjdCIsCiAgICAgICAgICAgICJwcm9wZXJ0aWVzIjogewogICAgICAgICAgICAgICAgInVzZXIiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIlVzZXIgY2FsZW5kYXIifSwKICAgICAgICAgICAgICAgICJzdWJqZWN0IjogeyJ0eXBlIjogInN0cmluZyIsICJkZXNjcmlwdGlvbiI6ICJFdmVudCB0aXRsZSJ9LAogICAgICAgICAgICAgICAgInN0YXJ0IjogeyJ0eXBlIjogInN0cmluZyIsICJkZXNjcmlwdGlvbiI6ICJTdGFydCBkYXRldGltZSAoSVNPIGZvcm1hdCkifSwKICAgICAgICAgICAgICAgICJlbmQiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIkVuZCBkYXRldGltZSAoSVNPIGZvcm1hdCkifSwKICAgICAgICAgICAgICAgICJhdHRlbmRlZXMiOiB7InR5cGUiOiAiYXJyYXkiLCAiaXRlbXMiOiB7InR5cGUiOiAic3RyaW5nIn0sICJkZXNjcmlwdGlvbiI6ICJBdHRlbmRlZSBlbWFpbHMifSwKICAgICAgICAgICAgICAgICJsb2NhdGlvbiI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiTG9jYXRpb24ifSwKICAgICAgICAgICAgICAgICJib2R5IjogeyJ0eXBlIjogInN0cmluZyIsICJkZXNjcmlwdGlvbiI6ICJFdmVudCBkZXNjcmlwdGlvbiJ9LAogICAgICAgICAgICAgICAgImlzX29ubGluZSI6IHsidHlwZSI6ICJib29sZWFuIiwgImRlc2NyaXB0aW9uIjogIkNyZWF0ZSBUZWFtcyBtZWV0aW5nIn0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgInJlcXVpcmVkIjogWyJzdWJqZWN0IiwgInN0YXJ0IiwgImVuZCJdCiAgICAgICAgfQogICAgfSwKICAgIHsKICAgICAgICAibmFtZSI6ICJnZXRfYXZhaWxhYmlsaXR5IiwKICAgICAgICAiZGVzY3JpcHRpb24iOiAiQ2hlY2sgZnJlZS9idXN5IGF2YWlsYWJpbGl0eSBmb3IgdXNlcnMiLAogICAgICAgICJpbnB1dFNjaGVtYSI6IHsKICAgICAgICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgICAgICAgICAiZW1haWxzIjogeyJ0eXBlIjogImFycmF5IiwgIml0ZW1zIjogeyJ0eXBlIjogInN0cmluZyJ9LCAiZGVzY3JpcHRpb24iOiAiVXNlciBlbWFpbHMgdG8gY2hlY2sifSwKICAgICAgICAgICAgICAgICJzdGFydCI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiU3RhcnQgZGF0ZXRpbWUgKElTTykifSwKICAgICAgICAgICAgICAgICJlbmQiOiB7InR5cGUiOiAic3RyaW5nIiwgImRlc2NyaXB0aW9uIjogIkVuZCBkYXRldGltZSAoSVNPKSJ9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJyZXF1aXJlZCI6IFsiZW1haWxzIiwgInN0YXJ0IiwgImVuZCJdCiAgICAgICAgfQogICAgfSwKICAgIHsKICAgICAgICAibmFtZSI6ICJsaXN0X3VzZXJzIiwKICAgICAgICAiZGVzY3JpcHRpb24iOiAiTGlzdCB1c2VycyBpbiB0aGUgb3JnYW5pemF0aW9uIiwKICAgICAgICAiaW5wdXRTY2hlbWEiOiB7CiAgICAgICAgICAgICJ0eXBlIjogIm9iamVjdCIsCiAgICAgICAgICAgICJwcm9wZXJ0aWVzIjogewogICAgICAgICAgICAgICAgInNlYXJjaCI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiU2VhcmNoIGJ5IG5hbWUgb3IgZW1haWwifSwKICAgICAgICAgICAgICAgICJ0b3AiOiB7InR5cGUiOiAiaW50ZWdlciIsICJkZXNjcmlwdGlvbiI6ICJNYXggcmVzdWx0cyAoZGVmYXVsdDogNTApIn0KICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICAgIm5hbWUiOiAiZ2V0X3VzZXIiLAogICAgICAgICJkZXNjcmlwdGlvbiI6ICJHZXQgdXNlciBwcm9maWxlIGRldGFpbHMiLAogICAgICAgICJpbnB1dFNjaGVtYSI6IHsKICAgICAgICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgICAgICAgICAidXNlciI6IHsidHlwZSI6ICJzdHJpbmciLCAiZGVzY3JpcHRpb24iOiAiVXNlciBlbWFpbCBvciBJRCJ9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJyZXF1aXJlZCI6IFsidXNlciJdCiAgICAgICAgfQogICAgfQpdCgoKIyA9PT09PT09PT09PT0gVE9PTCBJTVBMRU1FTlRBVElPTlMgPT09PT09PT09PT09CgpkZWYgcmVhZF9lbWFpbHModXNlcj1Ob25lLCBmb2xkZXI9ImluYm94IiwgdG9wPTEwLCB1bnJlYWRfb25seT1GYWxzZSwgc2VhcmNoPU5vbmUpOgogICAgIiIiUmVhZCBlbWFpbHMgZnJvbSBpbmJveCIiIgogICAgdXNlciA9IHVzZXIgb3IgREVGQVVMVF9VU0VSCiAgICBwYXJhbXMgPSBbZiIkdG9wPXt0b3B9IiwgIiRzZWxlY3Q9aWQsc3ViamVjdCxmcm9tLHJlY2VpdmVkRGF0ZVRpbWUsYm9keVByZXZpZXcsaXNSZWFkIl0KICAgIHBhcmFtcy5hcHBlbmQoIiRvcmRlcmJ5PXJlY2VpdmVkRGF0ZVRpbWUgZGVzYyIpCiAgICAKICAgIGZpbHRlcnMgPSBbXQogICAgaWYgdW5yZWFkX29ubHk6CiAgICAgICAgZmlsdGVycy5hcHBlbmQoImlzUmVhZCBlcSBmYWxzZSIpCiAgICBpZiBzZWFyY2g6CiAgICAgICAgcGFyYW1zLmFwcGVuZChmJyRzZWFyY2g9IntzZWFyY2h9IicpCiAgICBpZiBmaWx0ZXJzOgogICAgICAgIHBhcmFtcy5hcHBlbmQoZiIkZmlsdGVyPXsnIGFuZCAnLmpvaW4oZmlsdGVycyl9IikKICAgIAogICAgZW5kcG9pbnQgPSBmIi9tYWlsRm9sZGVycy97Zm9sZGVyfS9tZXNzYWdlcz97JyYnLmpvaW4ocGFyYW1zKX0iCiAgICByZXN1bHQgPSBncmFwaF9yZXF1ZXN0KCJHRVQiLCBlbmRwb2ludCwgdXNlcj11c2VyKQogICAgCiAgICBpZiAidmFsdWUiIGluIHJlc3VsdDoKICAgICAgICByZXR1cm4gewogICAgICAgICAgICAiY291bnQiOiBsZW4ocmVzdWx0WyJ2YWx1ZSJdKSwKICAgICAgICAgICAgImVtYWlscyI6IFt7CiAgICAgICAgICAgICAgICAiaWQiOiBtWyJpZCJdLAogICAgICAgICAgICAgICAgInN1YmplY3QiOiBtLmdldCgic3ViamVjdCIsICIobm8gc3ViamVjdCkiKSwKICAgICAgICAgICAgICAgICJmcm9tIjogbS5nZXQoImZyb20iLCB7fSkuZ2V0KCJlbWFpbEFkZHJlc3MiLCB7fSkuZ2V0KCJhZGRyZXNzIiwgInVua25vd24iKSwKICAgICAgICAgICAgICAgICJmcm9tX25hbWUiOiBtLmdldCgiZnJvbSIsIHt9KS5nZXQoImVtYWlsQWRkcmVzcyIsIHt9KS5nZXQoIm5hbWUiLCAiIiksCiAgICAgICAgICAgICAgICAiZGF0ZSI6IG0uZ2V0KCJyZWNlaXZlZERhdGVUaW1lIiksCiAgICAgICAgICAgICAgICAicHJldmlldyI6IG0uZ2V0KCJib2R5UHJldmlldyIsICIiKVs6MjAwXSwKICAgICAgICAgICAgICAgICJpc19yZWFkIjogbS5nZXQoImlzUmVhZCIsIEZhbHNlKQogICAgICAgICAgICB9IGZvciBtIGluIHJlc3VsdFsidmFsdWUiXV0KICAgICAgICB9CiAgICByZXR1cm4gcmVzdWx0CgoKZGVmIGdldF9lbWFpbChtZXNzYWdlX2lkLCB1c2VyPU5vbmUpOgogICAgIiIiR2V0IGZ1bGwgZW1haWwgYnkgSUQiIiIKICAgIHVzZXIgPSB1c2VyIG9yIERFRkFVTFRfVVNFUgogICAgZW5kcG9pbnQgPSBmIi9tZXNzYWdlcy97bWVzc2FnZV9pZH0/JHNlbGVjdD1pZCxzdWJqZWN0LGZyb20sdG9SZWNpcGllbnRzLGNjUmVjaXBpZW50cyxyZWNlaXZlZERhdGVUaW1lLGJvZHksaGFzQXR0YWNobWVudHMiCiAgICByZXN1bHQgPSBncmFwaF9yZXF1ZXN0KCJHRVQiLCBlbmRwb2ludCwgdXNlcj11c2VyKQogICAgCiAgICBpZiAiaWQiIGluIHJlc3VsdDoKICAgICAgICByZXR1cm4gewogICAgICAgICAgICAiaWQiOiByZXN1bHRbImlkIl0sCiAgICAgICAgICAgICJzdWJqZWN0IjogcmVzdWx0LmdldCgic3ViamVjdCIpLAogICAgICAgICAgICAiZnJvbSI6IHJlc3VsdC5nZXQoImZyb20iLCB7fSkuZ2V0KCJlbWFpbEFkZHJlc3MiLCB7fSksCiAgICAgICAgICAgICJ0byI6IFtyLmdldCgiZW1haWxBZGRyZXNzIiwge30pIGZvciByIGluIHJlc3VsdC5nZXQoInRvUmVjaXBpZW50cyIsIFtdKV0sCiAgICAgICAgICAgICJjYyI6IFtyLmdldCgiZW1haWxBZGRyZXNzIiwge30pIGZvciByIGluIHJlc3VsdC5nZXQoImNjUmVjaXBpZW50cyIsIFtdKV0sCiAgICAgICAgICAgICJkYXRlIjogcmVzdWx0LmdldCgicmVjZWl2ZWREYXRlVGltZSIpLAogICAgICAgICAgICAiYm9keSI6IHJlc3VsdC5nZXQoImJvZHkiLCB7fSkuZ2V0KCJjb250ZW50IiwgIiIpLAogICAgICAgICAgICAiaGFzX2F0dGFjaG1lbnRzIjogcmVzdWx0LmdldCgiaGFzQXR0YWNobWVudHMiLCBGYWxzZSkKICAgICAgICB9CiAgICByZXR1cm4gcmVzdWx0CgoKZGVmIHNlbmRfZW1haWwodG8sIHN1YmplY3QsIGJvZHksIHVzZXI9Tm9uZSwgY2M9Tm9uZSwgYmNjPU5vbmUsIGlzX2h0bWw9RmFsc2UsIGltcG9ydGFuY2U9Im5vcm1hbCIsIGF0dGFjaG1lbnRzPU5vbmUpOgogICAgIiIiU2VuZCBhbiBlbWFpbCIiIgogICAgdXNlciA9IHVzZXIgb3IgREVGQVVMVF9VU0VSCgogICAgbWVzc2FnZSA9IHsKICAgICAgICAibWVzc2FnZSI6IHsKICAgICAgICAgICAgInN1YmplY3QiOiBzdWJqZWN0LAogICAgICAgICAgICAiYm9keSI6IHsKICAgICAgICAgICAgICAgICJjb250ZW50VHlwZSI6ICJIVE1MIiBpZiBpc19odG1sIGVsc2UgIlRleHQiLAogICAgICAgICAgICAgICAgImNvbnRlbnQiOiBib2R5CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJ0b1JlY2lwaWVudHMiOiBbeyJlbWFpbEFkZHJlc3MiOiB7ImFkZHJlc3MiOiBhZGRyfX0gZm9yIGFkZHIgaW4gdG9dLAogICAgICAgICAgICAiaW1wb3J0YW5jZSI6IGltcG9ydGFuY2UKICAgICAgICB9CiAgICB9CgogICAgaWYgY2M6CiAgICAgICAgbWVzc2FnZVsibWVzc2FnZSJdWyJjY1JlY2lwaWVudHMiXSA9IFt7ImVtYWlsQWRkcmVzcyI6IHsiYWRkcmVzcyI6IGFkZHJ9fSBmb3IgYWRkciBpbiBjY10KICAgIGlmIGJjYzoKICAgICAgICBtZXNzYWdlWyJtZXNzYWdlIl1bImJjY1JlY2lwaWVudHMiXSA9IFt7ImVtYWlsQWRkcmVzcyI6IHsiYWRkcmVzcyI6IGFkZHJ9fSBmb3IgYWRkciBpbiBiY2NdCiAgICBpZiBhdHRhY2htZW50czoKICAgICAgICBtZXNzYWdlWyJtZXNzYWdlIl1bImF0dGFjaG1lbnRzIl0gPSBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJAb2RhdGEudHlwZSI6ICIjbWljcm9zb2Z0LmdyYXBoLmZpbGVBdHRhY2htZW50IiwKICAgICAgICAgICAgICAgICJuYW1lIjogYXR0WyJuYW1lIl0sCiAgICAgICAgICAgICAgICAiY29udGVudFR5cGUiOiBhdHQuZ2V0KCJjb250ZW50X3R5cGUiLCAiYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtIiksCiAgICAgICAgICAgICAgICAiY29udGVudEJ5dGVzIjogYXR0WyJjb250ZW50X2J5dGVzIl0KICAgICAgICAgICAgfQogICAgICAgICAgICBmb3IgYXR0IGluIGF0dGFjaG1lbnRzCiAgICAgICAgXQoKICAgIHJlc3VsdCA9IGdyYXBoX3JlcXVlc3QoIlBPU1QiLCAiL3NlbmRNYWlsIiwgdXNlcj11c2VyLCBqc29uPW1lc3NhZ2UpCiAgICByZXR1cm4geyJzdWNjZXNzIjogVHJ1ZSwgIm1lc3NhZ2UiOiBmIkVtYWlsIHNlbnQgdG8geycsICcuam9pbih0byl9In0KCgpkZWYgcmVwbHlfZW1haWwobWVzc2FnZV9pZCwgYm9keSwgdXNlcj1Ob25lLCByZXBseV9hbGw9RmFsc2UpOgogICAgIiIiUmVwbHkgdG8gYW4gZW1haWwiIiIKICAgIHVzZXIgPSB1c2VyIG9yIERFRkFVTFRfVVNFUgogICAgYWN0aW9uID0gInJlcGx5QWxsIiBpZiByZXBseV9hbGwgZWxzZSAicmVwbHkiCiAgICAKICAgIHJlc3VsdCA9IGdyYXBoX3JlcXVlc3QoIlBPU1QiLCBmIi9tZXNzYWdlcy97bWVzc2FnZV9pZH0ve2FjdGlvbn0iLCB1c2VyPXVzZXIsIGpzb249ewogICAgICAgICJjb21tZW50IjogYm9keQogICAgfSkKICAgIHJldHVybiB7InN1Y2Nlc3MiOiBUcnVlLCAiYWN0aW9uIjogYWN0aW9ufQoKCmRlZiBzZWFyY2hfZW1haWxzKHF1ZXJ5LCB1c2VyPU5vbmUsIHRvcD0yNSk6CiAgICAiIiJTZWFyY2ggZW1haWxzIiIiCiAgICB1c2VyID0gdXNlciBvciBERUZBVUxUX1VTRVIKICAgIGVuZHBvaW50ID0gZicvbWVzc2FnZXM/JHNlYXJjaD0ie3F1ZXJ5fSImJHRvcD17dG9wfSYkc2VsZWN0PWlkLHN1YmplY3QsZnJvbSxyZWNlaXZlZERhdGVUaW1lLGJvZHlQcmV2aWV3JwogICAgcmVzdWx0ID0gZ3JhcGhfcmVxdWVzdCgiR0VUIiwgZW5kcG9pbnQsIHVzZXI9dXNlcikKICAgIAogICAgaWYgInZhbHVlIiBpbiByZXN1bHQ6CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgImNvdW50IjogbGVuKHJlc3VsdFsidmFsdWUiXSksCiAgICAgICAgICAgICJlbWFpbHMiOiBbewogICAgICAgICAgICAgICAgImlkIjogbVsiaWQiXSwKICAgICAgICAgICAgICAgICJzdWJqZWN0IjogbS5nZXQoInN1YmplY3QiLCAiKG5vIHN1YmplY3QpIiksCiAgICAgICAgICAgICAgICAiZnJvbSI6IG0uZ2V0KCJmcm9tIiwge30pLmdldCgiZW1haWxBZGRyZXNzIiwge30pLmdldCgiYWRkcmVzcyIsICJ1bmtub3duIiksCiAgICAgICAgICAgICAgICAiZGF0ZSI6IG0uZ2V0KCJyZWNlaXZlZERhdGVUaW1lIiksCiAgICAgICAgICAgICAgICAicHJldmlldyI6IG0uZ2V0KCJib2R5UHJldmlldyIsICIiKVs6MjAwXQogICAgICAgICAgICB9IGZvciBtIGluIHJlc3VsdFsidmFsdWUiXV0KICAgICAgICB9CiAgICByZXR1cm4gcmVzdWx0CgoKZGVmIGxpc3RfY2FsZW5kYXJfZXZlbnRzKHVzZXI9Tm9uZSwgc3RhcnRfZGF0ZT1Ob25lLCBlbmRfZGF0ZT1Ob25lLCB0b3A9NTApOgogICAgIiIiTGlzdCBjYWxlbmRhciBldmVudHMiIiIKICAgIHVzZXIgPSB1c2VyIG9yIERFRkFVTFRfVVNFUgogICAgCiAgICBpZiBub3Qgc3RhcnRfZGF0ZToKICAgICAgICBzdGFydF9kYXRlID0gZGF0ZXRpbWUudXRjbm93KCkuc3RyZnRpbWUoIiVZLSVtLSVkVDAwOjAwOjAwWiIpCiAgICBpZiBub3QgZW5kX2RhdGU6CiAgICAgICAgZW5kX2R0ID0gZGF0ZXRpbWUudXRjbm93KCkgKyB0aW1lZGVsdGEoZGF5cz03KQogICAgICAgIGVuZF9kYXRlID0gZW5kX2R0LnN0cmZ0aW1lKCIlWS0lbS0lZFQyMzo1OTo1OVoiKQogICAgCiAgICBlbmRwb2ludCA9IGYiL2NhbGVuZGFyVmlldz9zdGFydERhdGVUaW1lPXtzdGFydF9kYXRlfSZlbmREYXRlVGltZT17ZW5kX2RhdGV9JiR0b3A9e3RvcH0mJHNlbGVjdD1pZCxzdWJqZWN0LHN0YXJ0LGVuZCxsb2NhdGlvbixhdHRlbmRlZXMsaXNPbmxpbmVNZWV0aW5nLG9ubGluZU1lZXRpbmdVcmwiCiAgICByZXN1bHQgPSBncmFwaF9yZXF1ZXN0KCJHRVQiLCBlbmRwb2ludCwgdXNlcj11c2VyKQogICAgCiAgICBpZiAidmFsdWUiIGluIHJlc3VsdDoKICAgICAgICByZXR1cm4gewogICAgICAgICAgICAiY291bnQiOiBsZW4ocmVzdWx0WyJ2YWx1ZSJdKSwKICAgICAgICAgICAgImV2ZW50cyI6IFt7CiAgICAgICAgICAgICAgICAiaWQiOiBlWyJpZCJdLAogICAgICAgICAgICAgICAgInN1YmplY3QiOiBlLmdldCgic3ViamVjdCIpLAogICAgICAgICAgICAgICAgInN0YXJ0IjogZS5nZXQoInN0YXJ0Iiwge30pLmdldCgiZGF0ZVRpbWUiKSwKICAgICAgICAgICAgICAgICJlbmQiOiBlLmdldCgiZW5kIiwge30pLmdldCgiZGF0ZVRpbWUiKSwKICAgICAgICAgICAgICAgICJsb2NhdGlvbiI6IGUuZ2V0KCJsb2NhdGlvbiIsIHt9KS5nZXQoImRpc3BsYXlOYW1lIiksCiAgICAgICAgICAgICAgICAiYXR0ZW5kZWVzIjogW2EuZ2V0KCJlbWFpbEFkZHJlc3MiLCB7fSkuZ2V0KCJhZGRyZXNzIikgZm9yIGEgaW4gZS5nZXQoImF0dGVuZGVlcyIsIFtdKV0sCiAgICAgICAgICAgICAgICAiaXNfb25saW5lIjogZS5nZXQoImlzT25saW5lTWVldGluZyIsIEZhbHNlKSwKICAgICAgICAgICAgICAgICJ0ZWFtc191cmwiOiBlLmdldCgib25saW5lTWVldGluZ1VybCIpCiAgICAgICAgICAgIH0gZm9yIGUgaW4gcmVzdWx0WyJ2YWx1ZSJdXQogICAgICAgIH0KICAgIHJldHVybiByZXN1bHQKCgpkZWYgY3JlYXRlX2V2ZW50KHN1YmplY3QsIHN0YXJ0LCBlbmQsIHVzZXI9Tm9uZSwgYXR0ZW5kZWVzPU5vbmUsIGxvY2F0aW9uPU5vbmUsIGJvZHk9Tm9uZSwgaXNfb25saW5lPUZhbHNlKToKICAgICIiIkNyZWF0ZSBjYWxlbmRhciBldmVudCIiIgogICAgdXNlciA9IHVzZXIgb3IgREVGQVVMVF9VU0VSCiAgICAKICAgIGV2ZW50ID0gewogICAgICAgICJzdWJqZWN0Ijogc3ViamVjdCwKICAgICAgICAic3RhcnQiOiB7ImRhdGVUaW1lIjogc3RhcnQsICJ0aW1lWm9uZSI6ICJVVEMifSwKICAgICAgICAiZW5kIjogeyJkYXRlVGltZSI6IGVuZCwgInRpbWVab25lIjogIlVUQyJ9CiAgICB9CiAgICAKICAgIGlmIGF0dGVuZGVlczoKICAgICAgICBldmVudFsiYXR0ZW5kZWVzIl0gPSBbeyJlbWFpbEFkZHJlc3MiOiB7ImFkZHJlc3MiOiBhZGRyfSwgInR5cGUiOiAicmVxdWlyZWQifSBmb3IgYWRkciBpbiBhdHRlbmRlZXNdCiAgICBpZiBsb2NhdGlvbjoKICAgICAgICBldmVudFsibG9jYXRpb24iXSA9IHsiZGlzcGxheU5hbWUiOiBsb2NhdGlvbn0KICAgIGlmIGJvZHk6CiAgICAgICAgZXZlbnRbImJvZHkiXSA9IHsiY29udGVudFR5cGUiOiAiVGV4dCIsICJjb250ZW50IjogYm9keX0KICAgIGlmIGlzX29ubGluZToKICAgICAgICBldmVudFsiaXNPbmxpbmVNZWV0aW5nIl0gPSBUcnVlCiAgICAgICAgZXZlbnRbIm9ubGluZU1lZXRpbmdQcm92aWRlciJdID0gInRlYW1zRm9yQnVzaW5lc3MiCiAgICAKICAgIHJlc3VsdCA9IGdyYXBoX3JlcXVlc3QoIlBPU1QiLCAiL2V2ZW50cyIsIHVzZXI9dXNlciwganNvbj1ldmVudCkKICAgIAogICAgaWYgImlkIiBpbiByZXN1bHQ6CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgInN1Y2Nlc3MiOiBUcnVlLAogICAgICAgICAgICAiZXZlbnRfaWQiOiByZXN1bHRbImlkIl0sCiAgICAgICAgICAgICJzdWJqZWN0IjogcmVzdWx0LmdldCgic3ViamVjdCIpLAogICAgICAgICAgICAidGVhbXNfdXJsIjogcmVzdWx0LmdldCgib25saW5lTWVldGluZyIsIHt9KS5nZXQoImpvaW5VcmwiKSBpZiBpc19vbmxpbmUgZWxzZSBOb25lCiAgICAgICAgfQogICAgcmV0dXJuIHJlc3VsdAoKCmRlZiBnZXRfYXZhaWxhYmlsaXR5KGVtYWlscywgc3RhcnQsIGVuZCk6CiAgICAiIiJDaGVjayBmcmVlL2J1c3kgYXZhaWxhYmlsaXR5IiIiCiAgICB0b2tlbiA9IGdldF9hY2Nlc3NfdG9rZW4oKQogICAgCiAgICBib2R5ID0gewogICAgICAgICJzY2hlZHVsZXMiOiBlbWFpbHMsCiAgICAgICAgInN0YXJ0VGltZSI6IHsiZGF0ZVRpbWUiOiBzdGFydCwgInRpbWVab25lIjogIlVUQyJ9LAogICAgICAgICJlbmRUaW1lIjogeyJkYXRlVGltZSI6IGVuZCwgInRpbWVab25lIjogIlVUQyJ9LAogICAgICAgICJhdmFpbGFiaWxpdHlWaWV3SW50ZXJ2YWwiOiAzMAogICAgfQogICAgCiAgICB3aXRoIGh0dHB4LkNsaWVudCh0aW1lb3V0PTMwKSBhcyBjbGllbnQ6CiAgICAgICAgcmVzcG9uc2UgPSBjbGllbnQucG9zdCgKICAgICAgICAgICAgZiJ7R1JBUEhfQkFTRX0vdXNlcnMve0RFRkFVTFRfVVNFUn0vY2FsZW5kYXIvZ2V0U2NoZWR1bGUiLAogICAgICAgICAgICBoZWFkZXJzPXsiQXV0aG9yaXphdGlvbiI6IGYiQmVhcmVyIHt0b2tlbn0iLCAiQ29udGVudC1UeXBlIjogImFwcGxpY2F0aW9uL2pzb24ifSwKICAgICAgICAgICAganNvbj1ib2R5CiAgICAgICAgKQogICAgICAgIHJlc3VsdCA9IHJlc3BvbnNlLmpzb24oKQogICAgCiAgICBpZiAidmFsdWUiIGluIHJlc3VsdDoKICAgICAgICByZXR1cm4gewogICAgICAgICAgICAic2NoZWR1bGVzIjogW3sKICAgICAgICAgICAgICAgICJlbWFpbCI6IHMuZ2V0KCJzY2hlZHVsZUlkIiksCiAgICAgICAgICAgICAgICAiYXZhaWxhYmlsaXR5Ijogcy5nZXQoImF2YWlsYWJpbGl0eVZpZXciKSwKICAgICAgICAgICAgICAgICJidXN5X3Nsb3RzIjogW3sKICAgICAgICAgICAgICAgICAgICAic3RhcnQiOiBzbG90LmdldCgic3RhcnQiLCB7fSkuZ2V0KCJkYXRlVGltZSIpLAogICAgICAgICAgICAgICAgICAgICJlbmQiOiBzbG90LmdldCgiZW5kIiwge30pLmdldCgiZGF0ZVRpbWUiKSwKICAgICAgICAgICAgICAgICAgICAic3RhdHVzIjogc2xvdC5nZXQoInN0YXR1cyIpCiAgICAgICAgICAgICAgICB9IGZvciBzbG90IGluIHMuZ2V0KCJzY2hlZHVsZUl0ZW1zIiwgW10pXQogICAgICAgICAgICB9IGZvciBzIGluIHJlc3VsdFsidmFsdWUiXV0KICAgICAgICB9CiAgICByZXR1cm4gcmVzdWx0CgoKZGVmIGxpc3RfdXNlcnMoc2VhcmNoPU5vbmUsIHRvcD01MCk6CiAgICAiIiJMaXN0IG9yZ2FuaXphdGlvbiB1c2VycyIiIgogICAgdG9rZW4gPSBnZXRfYWNjZXNzX3Rva2VuKCkKICAgIAogICAgcGFyYW1zID0gW2YiJHRvcD17dG9wfSIsICIkc2VsZWN0PWlkLGRpc3BsYXlOYW1lLG1haWwsam9iVGl0bGUsZGVwYXJ0bWVudCJdCiAgICBpZiBzZWFyY2g6CiAgICAgICAgcGFyYW1zLmFwcGVuZChmJyRzZWFyY2g9ImRpc3BsYXlOYW1lOntzZWFyY2h9IiBPUiAibWFpbDp7c2VhcmNofSInKQogICAgCiAgICBoZWFkZXJzID0geyJBdXRob3JpemF0aW9uIjogZiJCZWFyZXIge3Rva2VufSIsICJDb250ZW50LVR5cGUiOiAiYXBwbGljYXRpb24vanNvbiJ9CiAgICBpZiBzZWFyY2g6CiAgICAgICAgaGVhZGVyc1siQ29uc2lzdGVuY3lMZXZlbCJdID0gImV2ZW50dWFsIgogICAgCiAgICB3aXRoIGh0dHB4LkNsaWVudCh0aW1lb3V0PTMwKSBhcyBjbGllbnQ6CiAgICAgICAgcmVzcG9uc2UgPSBjbGllbnQuZ2V0KGYie0dSQVBIX0JBU0V9L3VzZXJzP3snJicuam9pbihwYXJhbXMpfSIsIGhlYWRlcnM9aGVhZGVycykKICAgICAgICByZXN1bHQgPSByZXNwb25zZS5qc29uKCkKICAgIAogICAgaWYgInZhbHVlIiBpbiByZXN1bHQ6CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgImNvdW50IjogbGVuKHJlc3VsdFsidmFsdWUiXSksCiAgICAgICAgICAgICJ1c2VycyI6IFt7CiAgICAgICAgICAgICAgICAiaWQiOiB1WyJpZCJdLAogICAgICAgICAgICAgICAgIm5hbWUiOiB1LmdldCgiZGlzcGxheU5hbWUiKSwKICAgICAgICAgICAgICAgICJlbWFpbCI6IHUuZ2V0KCJtYWlsIiksCiAgICAgICAgICAgICAgICAidGl0bGUiOiB1LmdldCgiam9iVGl0bGUiKSwKICAgICAgICAgICAgICAgICJkZXBhcnRtZW50IjogdS5nZXQoImRlcGFydG1lbnQiKQogICAgICAgICAgICB9IGZvciB1IGluIHJlc3VsdFsidmFsdWUiXSBpZiB1LmdldCgibWFpbCIpXQogICAgICAgIH0KICAgIHJldHVybiByZXN1bHQKCgpkZWYgZ2V0X3VzZXIodXNlcik6CiAgICAiIiJHZXQgdXNlciBwcm9maWxlIiIiCiAgICB0b2tlbiA9IGdldF9hY2Nlc3NfdG9rZW4oKQogICAgCiAgICB3aXRoIGh0dHB4LkNsaWVudCh0aW1lb3V0PTMwKSBhcyBjbGllbnQ6CiAgICAgICAgcmVzcG9uc2UgPSBjbGllbnQuZ2V0KAogICAgICAgICAgICBmIntHUkFQSF9CQVNFfS91c2Vycy97dXNlcn0/JHNlbGVjdD1pZCxkaXNwbGF5TmFtZSxtYWlsLGpvYlRpdGxlLGRlcGFydG1lbnQsb2ZmaWNlTG9jYXRpb24sbW9iaWxlUGhvbmUsYnVzaW5lc3NQaG9uZXMiLAogICAgICAgICAgICBoZWFkZXJzPXsiQXV0aG9yaXphdGlvbiI6IGYiQmVhcmVyIHt0b2tlbn0ifQogICAgICAgICkKICAgICAgICByZXN1bHQgPSByZXNwb25zZS5qc29uKCkKICAgIAogICAgaWYgImlkIiBpbiByZXN1bHQ6CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgImlkIjogcmVzdWx0WyJpZCJdLAogICAgICAgICAgICAibmFtZSI6IHJlc3VsdC5nZXQoImRpc3BsYXlOYW1lIiksCiAgICAgICAgICAgICJlbWFpbCI6IHJlc3VsdC5nZXQoIm1haWwiKSwKICAgICAgICAgICAgInRpdGxlIjogcmVzdWx0LmdldCgiam9iVGl0bGUiKSwKICAgICAgICAgICAgImRlcGFydG1lbnQiOiByZXN1bHQuZ2V0KCJkZXBhcnRtZW50IiksCiAgICAgICAgICAgICJvZmZpY2UiOiByZXN1bHQuZ2V0KCJvZmZpY2VMb2NhdGlvbiIpLAogICAgICAgICAgICAibW9iaWxlIjogcmVzdWx0LmdldCgibW9iaWxlUGhvbmUiKSwKICAgICAgICAgICAgInBob25lIjogcmVzdWx0LmdldCgiYnVzaW5lc3NQaG9uZXMiLCBbTm9uZV0pWzBdCiAgICAgICAgfQogICAgcmV0dXJuIHJlc3VsdAoKCiMgVG9vbCBkaXNwYXRjaGVyClRPT0xfTUFQID0gewogICAgInJlYWRfZW1haWxzIjogcmVhZF9lbWFpbHMsCiAgICAiZ2V0X2VtYWlsIjogZ2V0X2VtYWlsLAogICAgInNlbmRfZW1haWwiOiBzZW5kX2VtYWlsLAogICAgInJlcGx5X2VtYWlsIjogcmVwbHlfZW1haWwsCiAgICAic2VhcmNoX2VtYWlscyI6IHNlYXJjaF9lbWFpbHMsCiAgICAibGlzdF9jYWxlbmRhcl9ldmVudHMiOiBsaXN0X2NhbGVuZGFyX2V2ZW50cywKICAgICJjcmVhdGVfZXZlbnQiOiBjcmVhdGVfZXZlbnQsCiAgICAiZ2V0X2F2YWlsYWJpbGl0eSI6IGdldF9hdmFpbGFiaWxpdHksCiAgICAibGlzdF91c2VycyI6IGxpc3RfdXNlcnMsCiAgICAiZ2V0X3VzZXIiOiBnZXRfdXNlcgp9CgoKIyA9PT09PT09PT09PT0gUk9VVEVTID09PT09PT09PT09PQoKQGFwcC5yb3V0ZSgiL2hlYWx0aCIsIG1ldGhvZHM9WyJHRVQiXSkKZGVmIGhlYWx0aCgpOgogICAgIiIiSGVhbHRoIGNoZWNrIiIiCiAgICB0cnk6CiAgICAgICAgdG9rZW4gPSBnZXRfYWNjZXNzX3Rva2VuKCkKICAgICAgICByZXR1cm4ganNvbmlmeSh7CiAgICAgICAgICAgICJzdGF0dXMiOiAiaGVhbHRoeSIsCiAgICAgICAgICAgICJzZXJ2aWNlIjogIm0zNjUtbWNwIiwKICAgICAgICAgICAgImF1dGhlbnRpY2F0ZWQiOiBUcnVlLAogICAgICAgICAgICAiZGVmYXVsdF91c2VyIjogREVGQVVMVF9VU0VSLAogICAgICAgICAgICAidG9vbHMiOiBsZW4oVE9PTFMpCiAgICAgICAgfSkKICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICByZXR1cm4ganNvbmlmeSh7InN0YXR1cyI6ICJ1bmhlYWx0aHkiLCAiZXJyb3IiOiBzdHIoZSl9KSwgNTAwCgoKQGFwcC5yb3V0ZSgiL21jcCIsIG1ldGhvZHM9WyJQT1NUIl0pCmRlZiBtY3BfaGFuZGxlcigpOgogICAgIiIiTUNQIHByb3RvY29sIGhhbmRsZXIiIiIKICAgIGRhdGEgPSByZXF1ZXN0Lmpzb24gb3Ige30KICAgIG1ldGhvZCA9IGRhdGEuZ2V0KCJtZXRob2QiKQogICAgCiAgICBpZiBtZXRob2QgPT0gImluaXRpYWxpemUiOgogICAgICAgIHJldHVybiBqc29uaWZ5KHsKICAgICAgICAgICAgImpzb25ycGMiOiAiMi4wIiwKICAgICAgICAgICAgImlkIjogZGF0YS5nZXQoImlkIiksCiAgICAgICAgICAgICJyZXN1bHQiOiB7CiAgICAgICAgICAgICAgICAicHJvdG9jb2xWZXJzaW9uIjogIjIwMjQtMTEtMDUiLAogICAgICAgICAgICAgICAgInNlcnZlckluZm8iOiB7Im5hbWUiOiAibTM2NS1tY3AiLCAidmVyc2lvbiI6ICIxLjAuMCJ9LAogICAgICAgICAgICAgICAgImNhcGFiaWxpdGllcyI6IHsidG9vbHMiOiB7Imxpc3RDaGFuZ2VkIjogRmFsc2V9fQogICAgICAgICAgICB9CiAgICAgICAgfSkKICAgIAogICAgZWxpZiBtZXRob2QgPT0gInRvb2xzL2xpc3QiOgogICAgICAgIHJldHVybiBqc29uaWZ5KHsKICAgICAgICAgICAgImpzb25ycGMiOiAiMi4wIiwKICAgICAgICAgICAgImlkIjogZGF0YS5nZXQoImlkIiksCiAgICAgICAgICAgICJyZXN1bHQiOiB7InRvb2xzIjogVE9PTFN9CiAgICAgICAgfSkKICAgIAogICAgZWxpZiBtZXRob2QgPT0gInRvb2xzL2NhbGwiOgogICAgICAgIHRvb2xfbmFtZSA9IGRhdGEuZ2V0KCJwYXJhbXMiLCB7fSkuZ2V0KCJuYW1lIikKICAgICAgICBhcmd1bWVudHMgPSBkYXRhLmdldCgicGFyYW1zIiwge30pLmdldCgiYXJndW1lbnRzIiwge30pCiAgICAgICAgCiAgICAgICAgaWYgdG9vbF9uYW1lIG5vdCBpbiBUT09MX01BUDoKICAgICAgICAgICAgcmV0dXJuIGpzb25pZnkoewogICAgICAgICAgICAgICAgImpzb25ycGMiOiAiMi4wIiwKICAgICAgICAgICAgICAgICJpZCI6IGRhdGEuZ2V0KCJpZCIpLAogICAgICAgICAgICAgICAgImVycm9yIjogeyJjb2RlIjogLTMyNjAxLCAibWVzc2FnZSI6IGYiVW5rbm93biB0b29sOiB7dG9vbF9uYW1lfSJ9CiAgICAgICAgICAgIH0pCiAgICAgICAgCiAgICAgICAgdHJ5OgogICAgICAgICAgICByZXN1bHQgPSBUT09MX01BUFt0b29sX25hbWVdKCoqYXJndW1lbnRzKQogICAgICAgICAgICByZXR1cm4ganNvbmlmeSh7CiAgICAgICAgICAgICAgICAianNvbnJwYyI6ICIyLjAiLAogICAgICAgICAgICAgICAgImlkIjogZGF0YS5nZXQoImlkIiksCiAgICAgICAgICAgICAgICAicmVzdWx0IjogeyJjb250ZW50IjogW3sidHlwZSI6ICJ0ZXh0IiwgInRleHQiOiBqc29uLmR1bXBzKHJlc3VsdCwgaW5kZW50PTIsIGRlZmF1bHQ9c3RyKX1dfQogICAgICAgICAgICB9KQogICAgICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICAgICAgcmV0dXJuIGpzb25pZnkoewogICAgICAgICAgICAgICAgImpzb25ycGMiOiAiMi4wIiwKICAgICAgICAgICAgICAgICJpZCI6IGRhdGEuZ2V0KCJpZCIpLAogICAgICAgICAgICAgICAgImVycm9yIjogeyJjb2RlIjogLTMyMDAwLCAibWVzc2FnZSI6IHN0cihlKX0KICAgICAgICAgICAgfSkKICAgIAogICAgcmV0dXJuIGpzb25pZnkoewogICAgICAgICJqc29ucnBjIjogIjIuMCIsCiAgICAgICAgImlkIjogZGF0YS5nZXQoImlkIiksCiAgICAgICAgImVycm9yIjogeyJjb2RlIjogLTMyNjAxLCAibWVzc2FnZSI6IGYiTWV0aG9kIG5vdCBmb3VuZDoge21ldGhvZH0ifQogICAgfSkKCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgYXBwLnJ1bihob3N0PSIwLjAuMC4wIiwgcG9ydD04MDgwLCBkZWJ1Zz1UcnVlKQo=
+"""
+Microsoft 365 MCP Server - ABBI's M365 Integration
+Provides email, calendar, and user management via Microsoft Graph API
+"""
+
+from flask import Flask, request, jsonify
+import httpx
+import os
+import json
+from datetime import datetime, timedelta
+from functools import lru_cache
+import time
+
+app = Flask(__name__)
+
+# Configuration
+TENANT_ID = os.environ.get("TENANT_ID", "5e558f98-613b-4c55-80e7-4fd3273d8df3")
+CLIENT_ID = os.environ.get("CLIENT_ID", "9969e8ef-8c3b-4ea1-bf85-9a88e1371ab4")
+CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
+DEFAULT_USER = os.environ.get("DEFAULT_USER", "John.Claude@middleground.com")
+
+GRAPH_BASE = "https://graph.microsoft.com/v1.0"
+TOKEN_URL = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
+
+# Token cache
+_token_cache = {"token": None, "expires_at": 0}
+
+
+def get_access_token():
+    """Get or refresh access token"""
+    if _token_cache["token"] and time.time() < _token_cache["expires_at"] - 60:
+        return _token_cache["token"]
+    
+    response = httpx.post(TOKEN_URL, data={
+        "client_id": CLIENT_ID,
+        "client_secret": CLIENT_SECRET,
+        "scope": "https://graph.microsoft.com/.default",
+        "grant_type": "client_credentials"
+    })
+    
+    data = response.json()
+    if "access_token" in data:
+        _token_cache["token"] = data["access_token"]
+        _token_cache["expires_at"] = time.time() + data.get("expires_in", 3600)
+        return data["access_token"]
+    else:
+        raise Exception(f"Token error: {data}")
+
+
+def graph_request(method, endpoint, user=None, **kwargs):
+    """Make authenticated Graph API request"""
+    token = get_access_token()
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    
+    # Prepend user path if needed
+    if user and not endpoint.startswith("/users/"):
+        endpoint = f"/users/{user}{endpoint}"
+    elif not user and not endpoint.startswith("/users/"):
+        endpoint = f"/users/{DEFAULT_USER}{endpoint}"
+    
+    url = f"{GRAPH_BASE}{endpoint}"
+    
+    with httpx.Client(timeout=30) as client:
+        response = client.request(method, url, headers=headers, **kwargs)
+        if response.status_code == 204:
+            return {"success": True}
+        return response.json()
+
+
+# ============ MCP PROTOCOL ============
+
+TOOLS = [
+    {
+        "name": "read_emails",
+        "description": "Read emails from inbox. Returns subject, from, date, and preview.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "user": {"type": "string", "description": "User mailbox (default: John.Claude@middleground.com)"},
+                "folder": {"type": "string", "description": "Folder name (default: inbox)"},
+                "top": {"type": "integer", "description": "Number of emails to return (default: 10)"},
+                "unread_only": {"type": "boolean", "description": "Only return unread emails"},
+                "search": {"type": "string", "description": "Search query"}
+            }
+        }
+    },
+    {
+        "name": "get_email",
+        "description": "Get full email content by ID",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "user": {"type": "string", "description": "User mailbox"},
+                "message_id": {"type": "string", "description": "Email message ID"}
+            },
+            "required": ["message_id"]
+        }
+    },
+    {
+        "name": "send_email",
+        "description": "Send an email from the specified user",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "user": {"type": "string", "description": "Send as this user (default: John.Claude@middleground.com)"},
+                "to": {"type": "array", "items": {"type": "string"}, "description": "Recipient email addresses"},
+                "cc": {"type": "array", "items": {"type": "string"}, "description": "CC recipients"},
+                "bcc": {"type": "array", "items": {"type": "string"}, "description": "BCC recipients"},
+                "subject": {"type": "string", "description": "Email subject"},
+                "body": {"type": "string", "description": "Email body (HTML or plain text)"},
+                "is_html": {"type": "boolean", "description": "Body is HTML (default: false)"},
+                "importance": {"type": "string", "enum": ["low", "normal", "high"], "description": "Email importance"},
+                "attachments": {
+                    "type": "array",
+                    "description": "File attachments",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string", "description": "Filename"},
+                            "content_type": {"type": "string", "description": "MIME type (e.g. application/pdf)"},
+                            "content_bytes": {"type": "string", "description": "Base64 encoded file content"}
+                        },
+                        "required": ["name", "content_bytes"]
+                    }
+                }
+            },
+            "required": ["to", "subject", "body"]
+        }
+    },
+    {
+        "name": "reply_email",
+        "description": "Reply to an email",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "user": {"type": "string", "description": "User mailbox"},
+                "message_id": {"type": "string", "description": "Original message ID"},
+                "body": {"type": "string", "description": "Reply body"},
+                "reply_all": {"type": "boolean", "description": "Reply to all recipients"}
+            },
+            "required": ["message_id", "body"]
+        }
+    },
+    {
+        "name": "search_emails",
+        "description": "Search emails across mailbox",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "user": {"type": "string", "description": "User mailbox"},
+                "query": {"type": "string", "description": "Search query (KQL syntax)"},
+                "top": {"type": "integer", "description": "Max results (default: 25)"}
+            },
+            "required": ["query"]
+        }
+    },
+    {
+        "name": "list_calendar_events",
+        "description": "List calendar events for a date range",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "user": {"type": "string", "description": "User calendar"},
+                "start_date": {"type": "string", "description": "Start date (ISO format, default: today)"},
+                "end_date": {"type": "string", "description": "End date (ISO format, default: 7 days from start)"},
+                "top": {"type": "integer", "description": "Max events (default: 50)"}
+            }
+        }
+    },
+    {
+        "name": "create_event",
+        "description": "Create a calendar event",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "user": {"type": "string", "description": "User calendar"},
+                "subject": {"type": "string", "description": "Event title"},
+                "start": {"type": "string", "description": "Start datetime (ISO format)"},
+                "end": {"type": "string", "description": "End datetime (ISO format)"},
+                "attendees": {"type": "array", "items": {"type": "string"}, "description": "Attendee emails"},
+                "location": {"type": "string", "description": "Location"},
+                "body": {"type": "string", "description": "Event description"},
+                "is_online": {"type": "boolean", "description": "Create Teams meeting"}
+            },
+            "required": ["subject", "start", "end"]
+        }
+    },
+    {
+        "name": "get_availability",
+        "description": "Check free/busy availability for users",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "emails": {"type": "array", "items": {"type": "string"}, "description": "User emails to check"},
+                "start": {"type": "string", "description": "Start datetime (ISO)"},
+                "end": {"type": "string", "description": "End datetime (ISO)"}
+            },
+            "required": ["emails", "start", "end"]
+        }
+    },
+    {
+        "name": "list_users",
+        "description": "List users in the organization",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "search": {"type": "string", "description": "Search by name or email"},
+                "top": {"type": "integer", "description": "Max results (default: 50)"}
+            }
+        }
+    },
+    {
+        "name": "get_user",
+        "description": "Get user profile details",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "user": {"type": "string", "description": "User email or ID"}
+            },
+            "required": ["user"]
+        }
+    }
+]
+
+
+# ============ TOOL IMPLEMENTATIONS ============
+
+def read_emails(user=None, folder="inbox", top=10, unread_only=False, search=None):
+    """Read emails from inbox"""
+    user = user or DEFAULT_USER
+    params = [f"$top={top}", "$select=id,subject,from,receivedDateTime,bodyPreview,isRead"]
+    params.append("$orderby=receivedDateTime desc")
+    
+    filters = []
+    if unread_only:
+        filters.append("isRead eq false")
+    if search:
+        params.append(f'$search="{search}"')
+    if filters:
+        params.append(f"$filter={' and '.join(filters)}")
+    
+    endpoint = f"/mailFolders/{folder}/messages?{'&'.join(params)}"
+    result = graph_request("GET", endpoint, user=user)
+    
+    if "value" in result:
+        return {
+            "count": len(result["value"]),
+            "emails": [{
+                "id": m["id"],
+                "subject": m.get("subject", "(no subject)"),
+                "from": m.get("from", {}).get("emailAddress", {}).get("address", "unknown"),
+                "from_name": m.get("from", {}).get("emailAddress", {}).get("name", ""),
+                "date": m.get("receivedDateTime"),
+                "preview": m.get("bodyPreview", "")[:200],
+                "is_read": m.get("isRead", False)
+            } for m in result["value"]]
+        }
+    return result
+
+
+def get_email(message_id, user=None):
+    """Get full email by ID"""
+    user = user or DEFAULT_USER
+    endpoint = f"/messages/{message_id}?$select=id,subject,from,toRecipients,ccRecipients,receivedDateTime,body,hasAttachments"
+    result = graph_request("GET", endpoint, user=user)
+    
+    if "id" in result:
+        return {
+            "id": result["id"],
+            "subject": result.get("subject"),
+            "from": result.get("from", {}).get("emailAddress", {}),
+            "to": [r.get("emailAddress", {}) for r in result.get("toRecipients", [])],
+            "cc": [r.get("emailAddress", {}) for r in result.get("ccRecipients", [])],
+            "date": result.get("receivedDateTime"),
+            "body": result.get("body", {}).get("content", ""),
+            "has_attachments": result.get("hasAttachments", False)
+        }
+    return result
+
+
+def send_email(to, subject, body, user=None, cc=None, bcc=None, is_html=False, importance="normal", attachments=None):
+    """Send an email"""
+    user = user or DEFAULT_USER
+
+    message = {
+        "message": {
+            "subject": subject,
+            "body": {
+                "contentType": "HTML" if is_html else "Text",
+                "content": body
+            },
+            "toRecipients": [{"emailAddress": {"address": addr}} for addr in to],
+            "importance": importance
+        }
+    }
+
+    if cc:
+        message["message"]["ccRecipients"] = [{"emailAddress": {"address": addr}} for addr in cc]
+    if bcc:
+        message["message"]["bccRecipients"] = [{"emailAddress": {"address": addr}} for addr in bcc]
+    if attachments:
+        message["message"]["attachments"] = [
+            {
+                "@odata.type": "#microsoft.graph.fileAttachment",
+                "name": att["name"],
+                "contentType": att.get("content_type", "application/octet-stream"),
+                "contentBytes": att["content_bytes"]
+            }
+            for att in attachments
+        ]
+
+    result = graph_request("POST", "/sendMail", user=user, json=message)
+    return {"success": True, "message": f"Email sent to {', '.join(to)}"}
+
+
+def reply_email(message_id, body, user=None, reply_all=False):
+    """Reply to an email"""
+    user = user or DEFAULT_USER
+    action = "replyAll" if reply_all else "reply"
+    
+    result = graph_request("POST", f"/messages/{message_id}/{action}", user=user, json={
+        "comment": body
+    })
+    return {"success": True, "action": action}
+
+
+def search_emails(query, user=None, top=25):
+    """Search emails"""
+    user = user or DEFAULT_USER
+    endpoint = f'/messages?$search="{query}"&$top={top}&$select=id,subject,from,receivedDateTime,bodyPreview'
+    result = graph_request("GET", endpoint, user=user)
+    
+    if "value" in result:
+        return {
+            "count": len(result["value"]),
+            "emails": [{
+                "id": m["id"],
+                "subject": m.get("subject", "(no subject)"),
+                "from": m.get("from", {}).get("emailAddress", {}).get("address", "unknown"),
+                "date": m.get("receivedDateTime"),
+                "preview": m.get("bodyPreview", "")[:200]
+            } for m in result["value"]]
+        }
+    return result
+
+
+def list_calendar_events(user=None, start_date=None, end_date=None, top=50):
+    """List calendar events"""
+    user = user or DEFAULT_USER
+    
+    if not start_date:
+        start_date = datetime.utcnow().strftime("%Y-%m-%dT00:00:00Z")
+    if not end_date:
+        end_dt = datetime.utcnow() + timedelta(days=7)
+        end_date = end_dt.strftime("%Y-%m-%dT23:59:59Z")
+    
+    endpoint = f"/calendarView?startDateTime={start_date}&endDateTime={end_date}&$top={top}&$select=id,subject,start,end,location,attendees,isOnlineMeeting,onlineMeetingUrl"
+    result = graph_request("GET", endpoint, user=user)
+    
+    if "value" in result:
+        return {
+            "count": len(result["value"]),
+            "events": [{
+                "id": e["id"],
+                "subject": e.get("subject"),
+                "start": e.get("start", {}).get("dateTime"),
+                "end": e.get("end", {}).get("dateTime"),
+                "location": e.get("location", {}).get("displayName"),
+                "attendees": [a.get("emailAddress", {}).get("address") for a in e.get("attendees", [])],
+                "is_online": e.get("isOnlineMeeting", False),
+                "teams_url": e.get("onlineMeetingUrl")
+            } for e in result["value"]]
+        }
+    return result
+
+
+def create_event(subject, start, end, user=None, attendees=None, location=None, body=None, is_online=False):
+    """Create calendar event"""
+    user = user or DEFAULT_USER
+    
+    event = {
+        "subject": subject,
+        "start": {"dateTime": start, "timeZone": "UTC"},
+        "end": {"dateTime": end, "timeZone": "UTC"}
+    }
+    
+    if attendees:
+        event["attendees"] = [{"emailAddress": {"address": addr}, "type": "required"} for addr in attendees]
+    if location:
+        event["location"] = {"displayName": location}
+    if body:
+        event["body"] = {"contentType": "Text", "content": body}
+    if is_online:
+        event["isOnlineMeeting"] = True
+        event["onlineMeetingProvider"] = "teamsForBusiness"
+    
+    result = graph_request("POST", "/events", user=user, json=event)
+    
+    if "id" in result:
+        return {
+            "success": True,
+            "event_id": result["id"],
+            "subject": result.get("subject"),
+            "teams_url": result.get("onlineMeeting", {}).get("joinUrl") if is_online else None
+        }
+    return result
+
+
+def get_availability(emails, start, end):
+    """Check free/busy availability"""
+    token = get_access_token()
+    
+    body = {
+        "schedules": emails,
+        "startTime": {"dateTime": start, "timeZone": "UTC"},
+        "endTime": {"dateTime": end, "timeZone": "UTC"},
+        "availabilityViewInterval": 30
+    }
+    
+    with httpx.Client(timeout=30) as client:
+        response = client.post(
+            f"{GRAPH_BASE}/users/{DEFAULT_USER}/calendar/getSchedule",
+            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+            json=body
+        )
+        result = response.json()
+    
+    if "value" in result:
+        return {
+            "schedules": [{
+                "email": s.get("scheduleId"),
+                "availability": s.get("availabilityView"),
+                "busy_slots": [{
+                    "start": slot.get("start", {}).get("dateTime"),
+                    "end": slot.get("end", {}).get("dateTime"),
+                    "status": slot.get("status")
+                } for slot in s.get("scheduleItems", [])]
+            } for s in result["value"]]
+        }
+    return result
+
+
+def list_users(search=None, top=50):
+    """List organization users"""
+    token = get_access_token()
+    
+    params = [f"$top={top}", "$select=id,displayName,mail,jobTitle,department"]
+    if search:
+        params.append(f'$search="displayName:{search}" OR "mail:{search}"')
+    
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    if search:
+        headers["ConsistencyLevel"] = "eventual"
+    
+    with httpx.Client(timeout=30) as client:
+        response = client.get(f"{GRAPH_BASE}/users?{'&'.join(params)}", headers=headers)
+        result = response.json()
+    
+    if "value" in result:
+        return {
+            "count": len(result["value"]),
+            "users": [{
+                "id": u["id"],
+                "name": u.get("displayName"),
+                "email": u.get("mail"),
+                "title": u.get("jobTitle"),
+                "department": u.get("department")
+            } for u in result["value"] if u.get("mail")]
+        }
+    return result
+
+
+def get_user(user):
+    """Get user profile"""
+    token = get_access_token()
+    
+    with httpx.Client(timeout=30) as client:
+        response = client.get(
+            f"{GRAPH_BASE}/users/{user}?$select=id,displayName,mail,jobTitle,department,officeLocation,mobilePhone,businessPhones",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        result = response.json()
+    
+    if "id" in result:
+        return {
+            "id": result["id"],
+            "name": result.get("displayName"),
+            "email": result.get("mail"),
+            "title": result.get("jobTitle"),
+            "department": result.get("department"),
+            "office": result.get("officeLocation"),
+            "mobile": result.get("mobilePhone"),
+            "phone": result.get("businessPhones", [None])[0]
+        }
+    return result
+
+
+# Tool dispatcher
+TOOL_MAP = {
+    "read_emails": read_emails,
+    "get_email": get_email,
+    "send_email": send_email,
+    "reply_email": reply_email,
+    "search_emails": search_emails,
+    "list_calendar_events": list_calendar_events,
+    "create_event": create_event,
+    "get_availability": get_availability,
+    "list_users": list_users,
+    "get_user": get_user
+}
+
+
+# ============ ROUTES ============
+
+@app.route("/health", methods=["GET"])
+def health():
+    """Health check"""
+    try:
+        token = get_access_token()
+        return jsonify({
+            "status": "healthy",
+            "service": "m365-mcp",
+            "authenticated": True,
+            "default_user": DEFAULT_USER,
+            "tools": len(TOOLS)
+        })
+    except Exception as e:
+        return jsonify({"status": "unhealthy", "error": str(e)}), 500
+
+
+@app.route("/mcp", methods=["POST"])
+def mcp_handler():
+    """MCP protocol handler"""
+    data = request.json or {}
+    method = data.get("method")
+    
+    if method == "initialize":
+        return jsonify({
+            "jsonrpc": "2.0",
+            "id": data.get("id"),
+            "result": {
+                "protocolVersion": "2024-11-05",
+                "serverInfo": {"name": "m365-mcp", "version": "1.0.0"},
+                "capabilities": {"tools": {"listChanged": False}}
+            }
+        })
+    
+    elif method == "tools/list":
+        return jsonify({
+            "jsonrpc": "2.0",
+            "id": data.get("id"),
+            "result": {"tools": TOOLS}
+        })
+    
+    elif method == "tools/call":
+        tool_name = data.get("params", {}).get("name")
+        arguments = data.get("params", {}).get("arguments", {})
+        
+        if tool_name not in TOOL_MAP:
+            return jsonify({
+                "jsonrpc": "2.0",
+                "id": data.get("id"),
+                "error": {"code": -32601, "message": f"Unknown tool: {tool_name}"}
+            })
+        
+        try:
+            result = TOOL_MAP[tool_name](**arguments)
+            return jsonify({
+                "jsonrpc": "2.0",
+                "id": data.get("id"),
+                "result": {"content": [{"type": "text", "text": json.dumps(result, indent=2, default=str)}]}
+            })
+        except Exception as e:
+            return jsonify({
+                "jsonrpc": "2.0",
+                "id": data.get("id"),
+                "error": {"code": -32000, "message": str(e)}
+            })
+    
+    return jsonify({
+        "jsonrpc": "2.0",
+        "id": data.get("id"),
+        "error": {"code": -32601, "message": f"Method not found: {method}"}
+    })
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
